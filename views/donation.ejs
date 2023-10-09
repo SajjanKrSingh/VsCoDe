@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../stylesheets/style1.css">
+</head>
+<body>
+  <h1>Blood Donation Form</h1>
+  <h3>Donate Blood - Save Life!<br>
+      Donating blood is a very precious work for a human being.</h3>
+      <div class="container">
+        <form action="/contact" method="post">
+
+          <div class="question">
+            <label for="name">Your Name *</label>
+            <input type="text" id="name" name="name" placeholder="Your Name" required>
+          </div>
+
+          <div class="question">
+            <label for="email">Your Email *</label>
+            <input type="email" name="email" placeholder="Your Email" required>
+          </div>
+          <div class="question">
+            <label for="age">Your Age *</label>
+            <input type="number" name="age" placeholder="Your Age" required>
+          </div>
+          <div class="question">
+            <label for="age">Your Blood Group</label>
+            <input type="text" name="blood Group" placeholder="Your Blood Group" required>
+          </div>
+
+          <div class="question">
+            <label for="gender" class="radio">Your Gender *<br>
+            <input type="radio" name="gender" value="Male" required>M<br>
+            <input type="radio" name="gender" value="Female">F<br>
+            <input type="radio" name="gender" value="None">Prefer not to say<br></label>
+          </div>
+
+
+
+          <input type="submit"  >
+        </form>
+      </div>
+
+
+
+    <script src="../javascripts/script1.js"></script>
+</body>
+</html>

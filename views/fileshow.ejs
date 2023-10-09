@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="../stylesheets/style.css">
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@2.2.0/fonts/remixicon.css" rel="stylesheet">
+</head>
+
+<body>
+  <div id="overlay">
+    <div id="popup">
+      <h3>Rename</h3>
+    </div>
+  </div>
+  <div id="main">
+    <div id="left">
+      <div id="project-name">
+        <h4><i class="ri-arrow-down-s-line"></i>File Name</h4>
+        <div id="main-icons">
+          <i id="fileicon" class="ri-file-line"></i>
+          <i id="foldericon" class="ri-folder-4-line"></i>
+          <a href="/"><i class="ri-restart-line"></i></a>
+          <i class="ri-file-copy-line"></i>
+        </div>
+      </div>
+      <div class="form fileform">
+        <form action="/createfile">
+          <input type="text" name="filedata" placeholder="filename">
+        </form>
+      </div>
+      <div class="form folderform">
+        <form action="/createfolder">
+          <input type="text" name="folderdata" placeholder="foldername">
+        </form>
+      </div>
+      <div id="create-files">
+        <%files.forEach(function(kchbi){%>
+          <div class="file">
+            <a href="/file/<%=kchbi.name%>">
+              <% if(kchbi.isDirectory()===true){%>
+                <i class="ri-folder-4-line"></i>
+                <% } else{%>
+                  <i class="ri-file-line"></i>
+
+                  <% }%>
+
+                    <%= kchbi.name %>
+            </a>
+            <div class="fevicons">
+              <i id="rename" data-value="<%= kchbi.name%>" class="ri-pencil-line"></i>
+              <% if(kchbi.isDirectory()){%>
+                <a href="/deletefolder/<%= kchbi.name%>"><i class="ri-delete-bin-line"></i></a>
+                <% } else{%>
+                  <a href="/deletefile/<%= kchbi.name%>"><i class="ri-delete-bin-line"></i></a>
+                  <% }%>
+            </div>
+          </div>
+          <% })%>
+
+      </div>
+    </div>
+    <div id="right">
+      <div id="right-nav">
+        <div id="nav">
+          <h4> <%= filename %> </h4>
+          <a href="/"><i class="ri-close-line"></i></a>
+        </div>
+      </div>
+      <form action="/file/<%= filename %>"><textarea name="data"><%= data %></textarea></form>
+    </div>
+  </div>
+
+
+  <script src="../javascripts/script.js"></script>
+</body>
+
+</html>
